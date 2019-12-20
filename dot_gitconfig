@@ -1,0 +1,10 @@
+[user]
+	name = David Fournier
+	email = fr.david.fournier@gmail.com
+	siningkey = 3649048A5874EACE
+[core]
+	editor = nvim
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
