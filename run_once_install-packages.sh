@@ -112,6 +112,15 @@ else
   pip3 install powerline-status
 fi
 
+# Install pynvim (for neovim)
+if pip3 show pynvim &> /dev/null
+then
+	echo "⏩️ pynvim already installed"
+else
+	echo "🛠️  Installing pynvim"
+  pip3 install pynvim
+fi
+
 # Install yarn
 if hash yarn &>/dev/null
 then
@@ -119,6 +128,7 @@ then
 else
 	echo "🛠️  Installing yarn"
   brew install yarn
+  curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.21.1
 fi
 
 # Install nvm
