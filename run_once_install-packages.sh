@@ -19,7 +19,7 @@ then
 else
 	echo "🛠️  Installing Homebrew..."
 	HOMEBREW_URL=$GITHUB_URL/Linuxbrew/install/master/install.sh
-	command -v brew >/dev/null 2>&1 || sh -c "$(curl -fsSL $HOMEBREW_URL)"
+	sh -c "$(curl -fsSL $HOMEBREW_URL)"
 fi
 
 # Install Fishshell and makes it the default shell
@@ -33,7 +33,7 @@ else
 	chsh -s "$HOMEBREW_PREFIX/bin/fish"
 fi
 
-# Install 1Password CLI and setup ssh agent
+# Install 1Password CLI
 if hash op &>/dev/null
 then
 	echo "⏩️ 1Passwork-cli already installed"
