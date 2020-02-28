@@ -14,3 +14,7 @@ if not functions -q fisher
     curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
     fish -c fisher
 end
+
+if set -qU base16_theme; and not set -qx base16_theme
+    set -xU base16_theme $base16_theme
+end

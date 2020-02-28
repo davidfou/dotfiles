@@ -4,7 +4,7 @@ SETUVAR EDITOR:nvim
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
-SETUVAR base16_theme:solarized\x2ddark
+SETUVAR --export base16_theme:solarized\x2ddark
 SETUVAR fish_color_autosuggestion:586e75
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:green
