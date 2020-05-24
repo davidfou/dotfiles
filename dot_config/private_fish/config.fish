@@ -18,3 +18,5 @@ end
 if set -qU base16_theme; and not set -qx base16_theme
     set -xU base16_theme $base16_theme
 end
+
+set PATH ~/.local/bin $PATH

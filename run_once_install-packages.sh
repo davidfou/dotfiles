@@ -5,6 +5,7 @@ set -e
 GITHUB_URL=https://raw.githubusercontent.com
 
 echo "🛠️  Installing few packages..."
+sudo add-apt-repository ppa:mdoyen/homebank
 sudo apt install -y \
   exfat-fuse exfat-utils ubuntu-restricted-extras \
   sakura tmux
@@ -110,6 +111,15 @@ then
 else
 	echo "🛠️  Installing powerline"
   pip3 install powerline-status
+fi
+
+# Install tmuxp
+if pip3 show tmuxp &> /dev/null
+then
+	echo "⏩️ Tmuxp already installed"
+else
+	echo "🛠️  Installing tmuxp"
+  pip3 install --user tmuxp
 fi
 
 # Install pynvim (for neovim)

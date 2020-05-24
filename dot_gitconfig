@@ -8,3 +8,6 @@
 	gpgsign = true
 [gpg]
 	program = gpg
+
+[includeIf "gitdir:~/Workspace/uz/"]
+	path = ~/Workspace/uz/.gitconfig
