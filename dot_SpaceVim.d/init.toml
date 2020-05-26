@@ -54,6 +54,16 @@ auto_fix = true
 [[layers]]
 name = 'lang#typescript'
 
+[[layers]]
+name = "ctrlp"
+
+[[layers]]
+name = "rg"
+
+[[layers]]
+name = "git"
+git-plugin = "fugitive"
+
 [[custom_plugins]]
 name = 'peitalin/vim-jsx-typescript'
 merge = false

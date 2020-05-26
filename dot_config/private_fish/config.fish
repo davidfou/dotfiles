@@ -1,12 +1,14 @@
-# Load Homebrew
-eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+# Load asdf
+source ~/.asdf/asdf.fish
 
 # Load powerline bindings
-powerline-daemon -q
-set fish_function_path $fish_function_path "$HOMEBREW_PREFIX/lib/python3.7/site-packages/powerline/bindings/fish"
-set -x POWERLINE_NO_SHELL_PROMPT 0
-powerline-setup
-set -e POWERLINE_NO_SHELL_PROMPT
+if type -q powerline-daemon
+  powerline-daemon -q
+# set fish_function_path $fish_function_path "$HOMEBREW_PREFIX/lib/python3.7/site-packages/powerline/bindings/fish"
+  set -x POWERLINE_NO_SHELL_PROMPT 0
+  powerline-setup
+  set -e POWERLINE_NO_SHELL_PROMPT
+end
 
 # Install fisher
 if not functions -q fisher
@@ -18,5 +20,3 @@ end
 if set -qU base16_theme; and not set -qx base16_theme
     set -xU base16_theme $base16_theme
 end
-
-set PATH ~/.local/bin $PATH
