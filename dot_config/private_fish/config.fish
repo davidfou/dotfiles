@@ -4,7 +4,7 @@ source ~/.asdf/asdf.fish
 # Load powerline bindings
 if type -q powerline-daemon
   powerline-daemon -q
-# set fish_function_path $fish_function_path "$HOMEBREW_PREFIX/lib/python3.7/site-packages/powerline/bindings/fish"
+  set fish_function_path $fish_function_path "$ASDF_DIR/installs/python/3.8.3/lib/python3.8/site-packages/powerline/bindings/fish"
   set -x POWERLINE_NO_SHELL_PROMPT 0
   powerline-setup
   set -e POWERLINE_NO_SHELL_PROMPT
@@ -17,6 +17,12 @@ if not functions -q fisher
     fish -c fisher
 end
 
-if set -qU base16_theme; and not set -qx base16_theme
-    set -xU base16_theme $base16_theme
+# Setup theme
+base16-solarized-dark
+
+# Add op helper
+function op_signin -a SUBDOMAIN
+    set -xg OP_SESSION_$SUBDOMAIN (op signin $SUBDOMAIN --raw)
 end
+
+set -xg EDITOR nvim

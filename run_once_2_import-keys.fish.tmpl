@@ -1,0 +1,21 @@
+#!/usr/bin/fish
+
+{{  $keys := list -}}
+{{- $item1 := dict -}}
+{{- $_ := set $item1 "documentId" "vvwkphf3plex6suh33e5dasa3q" -}}
+{{- $_ := set $item1 "sectionId" "Section_ihfl4qdmvaewb63per7mls2nmq" -}}
+{{- $_ := set $item1 "fieldId" "3hlmrbunu5alugywmyp247cqre" -}}
+{{- $item2 := dict -}}
+{{- $_ := set $item2 "documentId" "y43p3o6pj4boi3j5bjpdu7ylta" -}}
+{{- $_ := set $item2 "sectionId" "Section_6bknvvhtvv5cjyb6r7admkfjri" -}}
+{{- $_ := set $item2 "fieldId" "ycg4r2cfrrcvqbpoi524pvj2ve" -}}
+{{- $keys := list $item1 $item2 -}}
+
+#!/bin/fish
+{{- range $key := $keys }}
+
+echo -n {{ range (onepassword $key.documentId).details.sections }}{{ if eq .name $key.sectionId }}{{ range .fields }}{{ if eq .n $key.fieldId }}{{ printf "%q" .v }}{{ end }}{{ end }}{{ end }}{{ end }} | xsel --clipboard
+op get document {{ $key.documentId }} | gpg --import
+{{- end }}
+
+xsel --clipboard --clear

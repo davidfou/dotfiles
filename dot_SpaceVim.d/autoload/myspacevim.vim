@@ -1,4 +1,15 @@
 function! myspacevim#before() abort
+  let g:coc_config_home = '~/.SpaceVim.d/'
+  let g:coc_global_extensions = [
+    \'coc-eslint',
+    \'coc-html',
+    \'coc-json',
+    \'coc-marketplace',
+    \'coc-prettier',
+    \'coc-spell-checker',
+    \'coc-svelte',
+    \'coc-tsserver'
+    \]
   " Use sh intead of fish in neovim (fix checkhealth)
   set shell=/bin/sh
 

@@ -22,7 +22,7 @@ root: ~/Workspace/uz/app
 # on_project_stop: command
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: nvm use 8.17.0
+# pre_window: command
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -40,6 +40,9 @@ pre_window: nvm use 8.17.0
 # attach: false
 
 windows:
-  - server: togetair serve --target localhost --port 8901 --params apiUrl=https://backend.test.urbantz.com --auto-versioning
-  - editor: nvim
+  - server:
+    - asdf shell nodejs 8.17.0
+    - togetair serve --target localhost --port 8901 --params apiUrl=https://backend.test.urbantz.com --auto-versioning
+  - editor:
+    - nvim
   - console:

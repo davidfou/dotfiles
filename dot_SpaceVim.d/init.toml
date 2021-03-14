@@ -49,7 +49,7 @@ name = 'checkers'
 
 [[layers]]
 name = 'lang#javascript'
-auto_fix = true
+auto_fix = false
 
 [[layers]]
 name = 'lang#typescript'
@@ -64,6 +64,13 @@ name = "rg"
 name = "git"
 git-plugin = "fugitive"
 
+[[layers]] 
+name = 'lsp'
+
 [[custom_plugins]]
 name = 'peitalin/vim-jsx-typescript'
+merge = false
+
+[[custom_plugins]]
+name = 'evanleck/vim-svelte'
 merge = false

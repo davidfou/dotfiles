@@ -1,0 +1,9 @@
+README.md
+
+# Ack to install first 1password CLI (mandatory to evaluate templates)
+{{- if not (stat (joinPath .chezmoi.homedir ".tool-versions")) }}
+**
+!0_*
+!.tool-versions
+!.default-*
+{{- end }}
