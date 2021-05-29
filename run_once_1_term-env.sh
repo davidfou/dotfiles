@@ -6,7 +6,14 @@ sudo apt-get update
 sudo apt install -y \
   exfat-fuse exfat-utils ubuntu-restricted-extras \
   dirmngr gpg \
-  tmux neovim ripgrep libsecret-tools
+  tmux neovim ripgrep libsecret-tools 
+
+# Enables hostname.local to be exposed
+sudo apt install -y avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan libnss-mdns
+
+# gtags layer dependency https://spacevim.org/layers/gtags/
+sudo apt install -y \
+  global exuberant-ctags
 
 # Install Kitty and set it as default terminal application
 if hash kitty &>/dev/null
@@ -64,3 +71,7 @@ else
   echo "-> Installing tpm..."
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+
+# Setup hostname
+hostnamectl set-hostname davidfou
+hostnamectl set-hostname "David Fournier" --pretty

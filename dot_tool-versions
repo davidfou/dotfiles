@@ -1,7 +1,7 @@
-nodejs    14.15.5
-yarn      1.22.4
-python    3.8.3
-ruby      2.7.1
-1password 1.0.0
-kubectl   1.18.3
+nodejs    14.16.0
+yarn      1.22.5
+python    3.9.2
+ruby      3.0.0
+1password 1.8.0
+kubectl   1.20.5
 jq        1.6
