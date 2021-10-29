@@ -20,3 +20,5 @@ install_plugin ruby      https://github.com/asdf-vm/asdf-ruby.git
 install_plugin 1password https://github.com/samtgarson/asdf-1password.git
 install_plugin kubectl   https://github.com/Banno/asdf-kubectl.git
 install_plugin jq        https://github.com/ryodocx/asdf-jq.git
+install_plugin java      https://github.com/halcyon/asdf-java.git
+install_plugin flutter   https://github.com/oae/asdf-flutter.git

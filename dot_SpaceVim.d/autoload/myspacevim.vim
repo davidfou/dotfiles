@@ -8,7 +8,8 @@ function! myspacevim#before() abort
     \'coc-prettier',
     \'coc-spell-checker',
     \'coc-svelte',
-    \'coc-tsserver'
+    \'coc-tsserver',
+    \'coc-flutter'
     \]
   " Use sh intead of fish in neovim (fix checkhealth)
   set shell=/bin/sh

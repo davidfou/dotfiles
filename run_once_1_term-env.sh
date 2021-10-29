@@ -6,7 +6,8 @@ sudo apt-get update
 sudo apt install -y \
   exfat-fuse exfat-utils ubuntu-restricted-extras \
   dirmngr gpg \
-  tmux neovim ripgrep libsecret-tools 
+  tmux neovim ripgrep libsecret-tools \
+  libjpeg-dev libgif-dev
 
 # Enables hostname.local to be exposed
 sudo apt install -y avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan libnss-mdns
