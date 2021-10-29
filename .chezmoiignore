@@ -1,6 +1,6 @@
 README.md
 
-# Ack to install first 1password CLI (mandatory to evaluate templates)
+# Hack to install first 1password CLI (mandatory to evaluate templates)
 {{- if not (stat (joinPath .chezmoi.homeDir ".tool-versions")) }}
 **
 !0_*

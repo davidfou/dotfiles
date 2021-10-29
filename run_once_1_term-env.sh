@@ -21,9 +21,7 @@ if hash kitty &>/dev/null
 then
   echo "[skip] Kitty already installed"
 else
-  echo "-> Kitty Fishshell..."
-  sudo apt-add-repository -y ppa:fish-shell/release-3
-  sudo apt-get update
+  echo "-> Installing Kitty..."
   sudo apt install -y kitty
   sudo update-alternatives --set x-terminal-emulator /usr/bin/kitty
 fi
