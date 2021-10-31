@@ -3,8 +3,11 @@
 set -e
 
 install_plugin () {
+  set +e
   $(asdf list $1 > /dev/null 2>&1)
-  if [ $? -eq 0 ]
+  is_installed=$?
+  set -e
+  if [ $is_installed -eq 0 ]
   then
     echo "[skip] asdf plugin $1 already installed"
   else

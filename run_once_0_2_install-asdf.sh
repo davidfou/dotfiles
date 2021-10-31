@@ -9,6 +9,4 @@ sudo apt-get install -y \
   libreadline-dev libsqlite3-dev wget llvm libncurses5-dev libncursesw5-dev \
   xz-utils tk-dev libffi-dev liblzma-dev python-openssl
 
-bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
-
 asdf install
