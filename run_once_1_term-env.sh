@@ -5,7 +5,6 @@ set -e
 sudo apt-get update
 sudo apt install -y \
   exfat-fuse exfat-utils ubuntu-restricted-extras \
-  dirmngr gpg \
   tmux neovim ripgrep libsecret-tools \
   libjpeg-dev libgif-dev
 
@@ -37,6 +36,7 @@ else
   sudo apt install -y fish
   chsh -s $(which fish)
 fi
+chezmoi completion fish --output=~/.config/fish/completions/chezmoi.fish
 
 # Install SpaceVim
 if test -d ~/.SpaceVim

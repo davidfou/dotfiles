@@ -2,6 +2,8 @@
 
 set -e
 
+. $HOME/.asdf/asdf.sh
+
 install_plugin () {
   set +e
   $(asdf list $1 > /dev/null 2>&1)

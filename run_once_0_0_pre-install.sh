@@ -3,16 +3,18 @@
 set -e
 
 sudo apt-get update
-sudo apt install -y curl git
+sudo apt install -y \
+  curl git `# asdf requirements` \
+  dirmngr gpg `# asdf nodejs requirements` \
+  unzip `# asdf 1password requirements`
 
 # Install asdf
-if hash asdf &>/dev/null
+if test -d ~/.asdf
 then
   echo "[skip] Asdf already installed"
 else
   echo "-> Installing asdf"
-  git -c advice.detachedHead=false clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1
-  . $HOME/.asdf/asdf.sh
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1
   mkdir -p ~/.config/fish/completions
   ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 fi
