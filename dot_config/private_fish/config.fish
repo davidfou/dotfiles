@@ -18,7 +18,13 @@ if not functions -q fisher
 end
 
 # Setup theme
-base16-solarized-dark
+# To avoid tmux to be blocked (https://github.com/tomyun/base16-fish/issues/7)
+if test -f ~/.config/fish/conf.d/base16.fish
+  rm ~/.config/fish/conf.d/base16.fish
+end
+if status --is-interactive && test -z "$TMUX"
+  base16-solarized-dark
+end
 
 # Add op helper
 function op_signin -a SUBDOMAIN
@@ -26,3 +32,4 @@ function op_signin -a SUBDOMAIN
 end
 
 set -xg EDITOR nvim
+set -xg DOCKER_HOST unix:///run/user/(id -u)/docker.sock

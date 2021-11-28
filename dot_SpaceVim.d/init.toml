@@ -67,10 +67,6 @@ git-plugin = "fugitive"
 [[layers]] 
 name = 'lsp'
 
-[[layers]]
-name = 'gtags'
-gtagslabel = 'pygments'
-
 [[custom_plugins]]
 name = 'peitalin/vim-jsx-typescript'
 merge = false

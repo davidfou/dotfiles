@@ -1,7 +1,9 @@
 README.md
+/dconf.ini
+/.steps
 
 # Hack to install first 1password CLI (mandatory to evaluate templates)
-{{- if not (stat (joinPath .chezmoi.homeDir ".tool-versions")) }}
+{{- if not (stat (joinPath .chezmoi.sourceDir ".steps/step1")) }}
 **
 !0_*
 !.tool-versions

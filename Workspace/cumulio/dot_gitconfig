@@ -1,0 +1,4 @@
+[user]
+	email = david@cumul.io
+[commit]
+	gpgsign = false

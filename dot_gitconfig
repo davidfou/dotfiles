@@ -10,3 +10,5 @@
 	program = gpg
 [advice]
 	detachedHead = false
+[includeIf "gitdir:~/Workspace/cumulio/"]
+	path = ~/Workspace/cumulio/.gitconfig

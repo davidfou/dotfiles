@@ -2,7 +2,9 @@
 
 set -e
 
-. $HOME/.asdf/asdf.sh
+blue=`tput setaf 4`
+reset=`tput sgr0`
+echo "${blue}Running run_0_1_configure-asdf...${reset}"
 
 install_plugin () {
   set +e
@@ -24,6 +26,7 @@ install_plugin python    https://github.com/danhper/asdf-python.git
 install_plugin ruby      https://github.com/asdf-vm/asdf-ruby.git
 install_plugin 1password https://github.com/samtgarson/asdf-1password.git
 install_plugin kubectl   https://github.com/Banno/asdf-kubectl.git
-install_plugin jq        https://github.com/ryodocx/asdf-jq.git
+install_plugin jq        https://github.com/AZMCode/asdf-jq.git
 install_plugin java      https://github.com/halcyon/asdf-java.git
 install_plugin flutter   https://github.com/oae/asdf-flutter.git
+install_plugin awscli    https://github.com/MetricMike/asdf-awscli.git

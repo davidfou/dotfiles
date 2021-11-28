@@ -11,8 +11,6 @@ function! myspacevim#before() abort
     \'coc-tsserver',
     \'coc-flutter'
     \]
-  " Use sh intead of fish in neovim (fix checkhealth)
-  set shell=/bin/sh
 
   " Use eslint for typescript files
   let g:neomake_typescript_enabled_makers = ['eslint']
