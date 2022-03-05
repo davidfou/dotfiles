@@ -12,3 +12,5 @@
 	detachedHead = false
 [includeIf "gitdir:~/Workspace/cumulio/"]
 	path = ~/Workspace/cumulio/.gitconfig
+[pull]
+	ff = only

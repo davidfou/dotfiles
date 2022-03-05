@@ -27,8 +27,8 @@ if status --is-interactive && test -z "$TMUX"
 end
 
 # Add op helper
-function op_signin -a SUBDOMAIN
-    set -xg OP_SESSION_$SUBDOMAIN (op signin $SUBDOMAIN --raw)
+function op_signin
+    set -xg OP_SESSION_$SUBDOMAIN (op signin my --raw)
 end
 
 set -xg EDITOR nvim

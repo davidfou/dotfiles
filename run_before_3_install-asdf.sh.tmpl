@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+blue=`tput setaf 4`
+reset=`tput sgr0`
+echo "${blue}Running run_0_2_install-asdf...${reset}"
+
+{{- if not (stat (joinPath .chezmoi.sourceDir ".steps/step1")) }}
+# Install dependencies for installing python
+sudo apt-get update
+sudo apt-get install -y \
+  build-essential libssl-dev zlib1g-dev libbz2-dev \
+  libreadline-dev libsqlite3-dev wget llvm libncurses5-dev libncursesw5-dev \
+  xz-utils tk-dev libffi-dev liblzma-dev
+{{- end }}
+
+asdf install
+
+touch {{ joinPath .chezmoi.sourceDir ".steps/step1" }}

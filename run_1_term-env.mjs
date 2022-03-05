@@ -19,6 +19,10 @@ if (await $`test -f ${stepFile}`.exitCode !== 0) {
     "libsecret-tools",
     "libjpeg-dev",
     "libgif-dev",
+    "libpixman-1-dev",
+    "libcairo2-dev",
+    "libpango1.0-dev",
+    "libjpeg8-dev",
   ];
   await $`sudo apt install -y ${packages}`;
   await $`touch ${stepFile}`;

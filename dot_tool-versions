@@ -8,3 +8,4 @@ jq        1.6
 java      adoptopenjdk-openj9-16.0.1+9.openj9-0.26.0
 flutter   2.2.3
 awscli    2.3.3
+dive      0.10.0

@@ -1,7 +1,7 @@
-# /home/davidfou/.config/tmuxinator/cc-ext.yml
+# /home/davidfou/.config/tmuxinator/cumul-visuals.yml
 
-name: cc-ext
-root: ~/Workspace/perso/conventionalcomments-web-ext
+name: cumul-visuals
+root: ~/Workspace/cumulio/visuals
 
 # Optional tmux socket
 # socket_name: foo
@@ -12,12 +12,7 @@ root: ~/Workspace/perso/conventionalcomments-web-ext
 # Project hooks
 
 # Runs on project start, always
-on_project_start: |
-  if [ ! -d ./.git ]
-  then
-    git clone git@gitlab.com:davidfou/conventionalcomments-web-extension.git .
-    yarn
-  fi
+# on_project_start: command
 
 # Run on project start, the first time
 # on_project_first_start: command
@@ -50,5 +45,16 @@ startup_pane: 2
 # attach: false
 
 windows:
-  - server: yarn dev
+  - server:
+      layout: even-horizontal
+      panes:
+        - all:
+          - cd build
+          - docker-compose stop
+          - docker-compose up --scale api-service=0
+        - api-service:
+          - cd backend
+          - nodemon --inspect microservices/api-service
   - editor: nvim
+  - integration-tests: cd backend/integration-tests
+  - console:
