@@ -8,7 +8,7 @@ const stepFile = await $`chezmoi data | jq -r '.chezmoi.sourceDir + "/.steps/ste
 const installDockerCompose = async (version = 'v2.2.3') => {
   const kernelName = await $`uname -s`;
   const machine = await $`uname -m`;
-  await $`sudo curl -L "https://github.com/docker/compose/releases/download/${version}/docker-compose-${kernelName}-${machine} -o /usr/local/bin/docker-compose`;
+  await $`sudo curl -L "https://github.com/docker/compose/releases/download/${version}/docker-compose-${kernelName}-${machine}" -o /usr/local/bin/docker-compose`;
   await $`sudo chmod +x /usr/local/bin/docker-compose`;
 };
 
@@ -25,12 +25,12 @@ if (await $`test -f ${stepFile}`.exitCode !== 0) {
     "lsb-release",
     "uidmap",
   ];
-  await $`sudo apt install -y ${packages}`;
+  await $`sudo apt-get install -y ${packages}`;
 
   await $`curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg`;
   const architecture = await $`dpkg --print-architecture`;
   const release = await $`lsb_release -cs`;
-  await $`echo "deb [arch=${architecture}] signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu ${release} stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null`;
+  await $`echo "deb [arch=${architecture} signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu ${release} stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null`;
 
   await $`sudo apt-get update`;
   await $`sudo apt-get install -y docker-ce docker-ce-cli containerd.io`;

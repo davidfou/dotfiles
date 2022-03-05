@@ -4,7 +4,7 @@ set -e
 
 blue=`tput setaf 4`
 reset=`tput sgr0`
-echo "${blue}Running run_0_2_install-asdf...${reset}"
+echo "${blue}Running run_before_3_install-asdf...${reset}"
 
 {{- if not (stat (joinPath .chezmoi.sourceDir ".steps/step1")) }}
 # Install dependencies for installing python

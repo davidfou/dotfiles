@@ -8,5 +8,5 @@ if (!current.startsWith('git@')) {
   await $`chezmoi git remote remove origin`;
   await $`chezmoi git remote add origin git@github.com:davidfou/dotfiles.git`;
   await $`chezmoi git fetch`;
-  await $`chezmoi git branch -u origin/master`;
+  await $`chezmoi git -- branch -u origin/master`;
 }

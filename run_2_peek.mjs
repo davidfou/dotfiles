@@ -8,7 +8,7 @@ if (await $`type -q peek`.exitCode !== 0) {
   $.shell = '/usr/bin/bash';
   console.time("Done!");
   await $`sudo add-apt-repository ppa:peek-developers/stable`;
-  await $`sudo apt update`;
-  await $`sudo apt install peek`;
+  await $`sudo apt-get update`;
+  await $`sudo apt-get install peek`;
   console.timeEnd("Done!");
 }

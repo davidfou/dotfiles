@@ -1,6 +1,6 @@
 #!/usr/bin/env zx
 
-console.log(chalk.blue(`Running run_2_import-keys...`));
+console.log(chalk.blue(`Running run_1_import-keys...`));
 $.verbose = false;
 
 const keys = ["vvwkphf3plex6suh33e5dasa3q"];

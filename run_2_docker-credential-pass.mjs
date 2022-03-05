@@ -26,6 +26,7 @@ const { browser_download_url: url } = info.assets.find(({ name }) => name === `d
 
 let shouldInstall = false;
 if (await $`type -q docker-credential-pass`.exitCode !== 0) {
+  $.shell = '/usr/bin/bash';
   shouldInstall = true;
   await $`pass init "B8BA7C24F96E4D86077FBBC93649048A5874EACE"`;
   const command = $`pass insert -e docker-credential-helpers/docker-pass-initialized-check`;

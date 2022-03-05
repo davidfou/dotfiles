@@ -17,7 +17,7 @@ if (await $`type -q slack`.exitCode !== 0) {
   const fileDestination = path.join(tempDir, 'slack.deb');
   try {
     await $`curl -fsSL -o ${fileDestination} 'https://downloads.slack-edge.com/releases/linux/4.20.0/prod/x64/slack-desktop-4.20.0-amd64.deb'`;
-    await $`sudo apt install -y ${fileDestination}`;
+    await $`sudo apt-get install -y ${fileDestination}`;
   } finally {
     await fs.rm(tempDir, { recursive: true });
     console.timeEnd("Done!");

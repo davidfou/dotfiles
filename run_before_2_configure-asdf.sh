@@ -4,7 +4,7 @@ set -e
 
 blue=`tput setaf 4`
 reset=`tput sgr0`
-echo "${blue}Running run_0_1_configure-asdf...${reset}"
+echo "${blue}Running run_before_2_configure-asdf...${reset}"
 
 install_plugin () {
   set +e
@@ -20,6 +20,7 @@ install_plugin () {
   fi
 }
 
+. ~/.asdf/asdf.sh
 install_plugin nodejs    https://github.com/asdf-vm/asdf-nodejs.git
 install_plugin yarn      https://github.com/twuni/asdf-yarn.git
 install_plugin python    https://github.com/danhper/asdf-python.git

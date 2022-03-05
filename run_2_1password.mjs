@@ -17,7 +17,7 @@ if (await $`type -q 1password`.exitCode !== 0) {
   const fileDestination = path.join(tempDir, '1password.deb');
   try {
     await $`curl -fsSL -o ${fileDestination} 'https://downloads.1password.com/linux/debian/amd64/stable/1password-latest.deb'`;
-    await $`sudo apt install -y ${fileDestination}`;
+    await $`sudo apt-get install -y ${fileDestination}`;
   } finally {
     await fs.rm(tempDir, { recursive: true });
     console.timeEnd("Done!");

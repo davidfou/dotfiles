@@ -17,7 +17,7 @@ if (await $`type -q zoom`.exitCode !== 0) {
   const fileDestination = path.join(tempDir, 'zoom.deb');
   try {
     await $`curl -fsSL -o ${fileDestination} 'https://zoom.us/client/latest/zoom_amd64.deb'`;
-    await $`sudo apt install -y ${fileDestination}`;
+    await $`sudo apt-get install -y ${fileDestination}`;
   } finally {
     await fs.rm(tempDir, { recursive: true });
     console.timeEnd("Done!");

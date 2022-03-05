@@ -4,7 +4,7 @@ set -e
 
 blue=`tput setaf 4`
 reset=`tput sgr0`
-echo "${blue}Running run_0_0_pre-install...${reset}"
+echo "${blue}Running run_before_1_pre-install...${reset}"
 
 # Install asdf
 if test -d ~/.asdf
@@ -13,7 +13,7 @@ then
 else
   echo "-> Installing asdf"
   sudo apt-get update
-  sudo apt install -y \
+  sudo apt-get install -y \
     curl git `# asdf requirements` \
     dirmngr gpg `# asdf nodejs requirements` \
     unzip `# asdf 1password requirements`
