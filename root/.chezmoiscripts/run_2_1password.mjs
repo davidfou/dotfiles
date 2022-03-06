@@ -16,8 +16,8 @@ if (await $`type -q 1password`.exitCode !== 0) {
   await $`sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22`;
   await $`curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg`;
 
-  await $`sudo apt-get update`;
-  await $`sudo apt-get install -y 1password`;
+  await $`sudo apt-get -o DPkg::Lock::Timeout=60 update`;
+  await $`sudo apt-get -o DPkg::Lock::Timeout=60 install -y 1password`;
 
   console.timeEnd("Done!");
 }

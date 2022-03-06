@@ -5,7 +5,7 @@ $.verbose = false;
 
 console.time("Done!");
 
-await $`sudo apt-get remove firefox -y`;
+await $`sudo apt-get -o DPkg::Lock::Timeout=60 firefox -y`;
 await $`flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo`;
 
 const applications = [

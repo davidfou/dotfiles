@@ -8,8 +8,8 @@ echo "${blue}Running run_0_3_install-asdf...${reset}"
 
 {{- if not (stat (joinPath .chezmoi.workingTree ".steps/step1")) }}
 # Install dependencies for installing python
-sudo apt-get update
-sudo apt-get install -y \
+sudo apt-get -o DPkg::Lock::Timeout=60 update
+sudo apt-get -o DPkg::Lock::Timeout=60 install -y \
   build-essential libssl-dev zlib1g-dev libbz2-dev \
   libreadline-dev libsqlite3-dev wget llvm libncurses5-dev libncursesw5-dev \
   xz-utils tk-dev libffi-dev liblzma-dev

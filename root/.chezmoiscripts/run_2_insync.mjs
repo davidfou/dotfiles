@@ -10,7 +10,7 @@ if (await $`type -q insync`.exitCode !== 0) {
   const content = await $`chezmoi data | jq -r '"deb http://apt.insync.io/ubuntu " + .chezmoi.osRelease.versionCodename + " non-free contrib"'`;
   await $`sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ACCAF35C`;
   await $`sudo echo ${content} | sudo tee -a /etc/apt/sources.list.d/insync.list`
-  await $`sudo apt-get update`;
-  await $`sudo apt-get install insync`;
+  await $`sudo apt-get -o DPkg::Lock::Timeout=60 update`;
+  await $`sudo apt-get -o DPkg::Lock::Timeout=60 install insync`;
   console.timeEnd("Done!");
 }

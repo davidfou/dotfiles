@@ -12,8 +12,8 @@ then
   echo "[skip] Asdf already installed"
 else
   echo "-> Installing asdf"
-  sudo apt-get update
-  sudo apt-get install -y \
+  sudo apt-get -o DPkg::Lock::Timeout=60 update
+  sudo apt-get -o DPkg::Lock::Timeout=60 install -y \
     curl git `# asdf requirements` \
     dirmngr gpg `# asdf nodejs requirements` \
     unzip `# asdf 1password requirements`

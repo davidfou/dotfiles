@@ -9,7 +9,7 @@ if (await $`type -q notion-app-enhanced`.exitCode !== 0) {
   console.time("Done!");
 
   await $`echo "deb [trusted=yes] https://apt.fury.io/notion-repackaged/ /" | sudo tee /etc/apt/sources.list.d/notion-repackaged.list`;
-  await $`sudo apt-get update`;
-  await $`sudo apt-get install notion-app-enhanced`;
+  await $`sudo apt-get -o DPkg::Lock::Timeout=60 update`;
+  await $`sudo apt-get -o DPkg::Lock::Timeout=60 install notion-app-enhanced`;
   console.timeEnd("Done!");
 }
