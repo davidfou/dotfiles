@@ -46,6 +46,6 @@ for (const key of keys) {
   for (const keygrip of keygrips) {
     await $`op get document ${key} | gpg --import --pinentry-mode loopback --passphrase=${password}`;
     await $`echo ${publicKey}:6: | gpg --import-ownertrust`;
-    await $`gjs -c ${generateCode(keygrip.toString(), password.toString())}`;
+    await $`gjs -c ${generateCode(keygrip.toString().trim(), password.toString().trim())}`;
   }
 }
