@@ -28,8 +28,9 @@ end
 
 # Add op helper
 function op_signin
-    set -xg OP_SESSION_$SUBDOMAIN (op signin my --raw)
+    set -xg OP_SESSION_my (op signin my --raw)
 end
 
 set -xg EDITOR nvim
 set -xg DOCKER_HOST unix:///run/user/(id -u)/docker.sock
+set -xg TMUX_BASE16_THEME $base16_theme
