@@ -7,7 +7,7 @@ $.verbose = false;
 
 console.time("Done!");
 const data = JSON.parse((await $`chezmoi data`).toString());
-await $`dconf load / < ${path.join(data.chezmoi.sourceDir, 'dconf.ini')}`;
+await $`dconf load / < ${path.join(data.chezmoi.workingTree, 'dconf.ini')}`;
 
 await $`sudo update-locale LANG=en_US.UTF-8`;
 await $`sudo update-locale LC_MONETARY=fr_FR.UTF-8`;

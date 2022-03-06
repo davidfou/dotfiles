@@ -4,7 +4,7 @@ set -e
 
 blue=`tput setaf 4`
 reset=`tput sgr0`
-echo "${blue}Running run_before_1_pre-install...${reset}"
+echo "${blue}Running run_0_1_pre-install...${reset}"
 
 # Install asdf
 if test -d ~/.asdf

@@ -4,7 +4,7 @@ set -e
 
 blue=`tput setaf 4`
 reset=`tput sgr0`
-echo "${blue}Running run_before_2_configure-asdf...${reset}"
+echo "${blue}Running run_0_2_configure-asdf...${reset}"
 
 install_plugin () {
   set +e

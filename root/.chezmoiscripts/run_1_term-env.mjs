@@ -5,7 +5,7 @@ import fs from "fs/promises";
 console.log(chalk.blue(`Running run_1_term-env...`))
 $.verbose = false;
 
-const stepFile = await $`chezmoi data | jq -r '.chezmoi.sourceDir + "/.steps/step2"'`;
+const stepFile = await $`chezmoi data | jq -r '.chezmoi.workingTree + "/.steps/step2"'`;
 
 if (await $`test -f ${stepFile}`.exitCode !== 0) {
   console.log("Installing some packages...");

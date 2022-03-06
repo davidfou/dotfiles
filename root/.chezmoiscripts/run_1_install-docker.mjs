@@ -3,7 +3,7 @@
 console.log(chalk.blue(`Running run_1_install-docker...`))
 $.verbose = false;
 
-const stepFile = await $`chezmoi data | jq -r '.chezmoi.sourceDir + "/.steps/step3"'`;
+const stepFile = await $`chezmoi data | jq -r '.chezmoi.workingTree + "/.steps/step3"'`;
 
 const installDockerCompose = async (version = 'v2.2.3') => {
   const kernelName = await $`uname -s`;

@@ -5,7 +5,7 @@ $.verbose = false;
 
 console.time("Done!");
 
-await $`sudo apt-get remove firefox`;
+await $`sudo apt-get remove firefox -y`;
 await $`flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo`;
 
 const applications = [

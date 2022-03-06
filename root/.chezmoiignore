@@ -1,0 +1,8 @@
+# Hack for the first run
+{{- if not (stat (joinPath .chezmoi.workingTree ".steps/step1")) }}
+**
+!/.chezmoiscripts/0_*
+!/.tool-versions
+!/.gitconfig
+!/.default-*
+{{- end }}
