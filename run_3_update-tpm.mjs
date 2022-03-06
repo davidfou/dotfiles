@@ -1,6 +1,6 @@
 #!/usr/bin/env zx
 
-console.log(chalk.blue(`Running run_2_update-tpm...`));
+console.log(chalk.blue(`Running run_3_update-tpm...`));
 $.verbose = false;
 
 console.time("Done!");

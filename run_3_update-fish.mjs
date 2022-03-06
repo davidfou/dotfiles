@@ -1,6 +1,6 @@
 #!/usr/bin/env zx
 
-console.log(chalk.blue(`Running run_2_update-fish...`));
+console.log(chalk.blue(`Running run_3_update-fish...`));
 $.verbose = false;
 $.shell = '/usr/bin/fish';
 

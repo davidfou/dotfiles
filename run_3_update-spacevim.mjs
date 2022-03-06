@@ -1,6 +1,6 @@
 #!/usr/bin/env zx
 
-console.log(chalk.blue(`Running run_2_update-spacevim...`));
+console.log(chalk.blue(`Running run_3_update-spacevim...`));
 $.verbose = false;
 
 console.time("Done!");

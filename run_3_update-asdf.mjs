@@ -1,6 +1,6 @@
 #!/usr/bin/env zx
 
-console.log(chalk.blue(`Running run_2_update-asdf...`));
+console.log(chalk.blue(`Running run_3_update-asdf...`));
 $.verbose = false;
 
 console.time("Done!");
