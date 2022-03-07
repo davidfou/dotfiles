@@ -16,7 +16,7 @@ if (await $`test -f ${stepFile}`.exitCode !== 0) {
   // Instructions comming from https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
   console.log("Installing some packages...");
   console.time("Done!");
-  await $`sudo apt-get -o DPkg::Lock::Timeout=60 remove docker docker-engine docker.io containerd runc`
+  await $`sudo apt-get -o DPkg::Lock::Timeout=60 remove -y docker docker.io containerd runc`
   await $`sudo apt-get -o DPkg::Lock::Timeout=60 update`;
   const packages = [
     "pass",

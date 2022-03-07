@@ -47,7 +47,7 @@ if (await $`hash fish`.exitCode !== 0) {
   await $`sudo apt-add-repository -y ppa:fish-shell/release-3`;
   await $`sudo apt-get -o DPkg::Lock::Timeout=60 update`;
   await $`sudo apt-get -o DPkg::Lock::Timeout=60 install -y fish`;
-  await $`chsh -s $(which fish)`;
+  await $`chsh -s $(which fish) $(whoami)`;
   console.timeEnd("Done!");
 }
 

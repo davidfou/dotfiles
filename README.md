@@ -3,5 +3,5 @@
 ## Setup
 
 ```sh
-bash -c "$(curl -fsLS https://chezmoi.davidfou.fr)"
+bash -c "$(curl -fsLS chezmoi.davidfou.fr)"
 ```
