@@ -4,7 +4,7 @@ source ~/.asdf/asdf.fish
 # Load powerline bindings
 if type -q powerline-daemon
   powerline-daemon -q
-  set fish_function_path $fish_function_path "$ASDF_DIR/installs/python/3.9.2/lib/python3.9/site-packages/powerline/bindings/fish"
+  set fish_function_path $fish_function_path "{{ template "pythonPath" (list "powerline/bindings/fish" .)  }}"
   set -x POWERLINE_NO_SHELL_PROMPT 0
   powerline-setup
   set -e POWERLINE_NO_SHELL_PROMPT

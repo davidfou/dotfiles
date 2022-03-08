@@ -47,7 +47,7 @@ if (await $`hash fish`.exitCode !== 0) {
   await $`sudo apt-add-repository -y ppa:fish-shell/release-3`;
   await $`sudo apt-get -o DPkg::Lock::Timeout=60 update`;
   await $`sudo apt-get -o DPkg::Lock::Timeout=60 install -y fish`;
-  await $`chsh -s $(which fish) $(whoami)`;
+  await $`sudo chsh -s $(which fish) $(whoami)`;
   console.timeEnd("Done!");
 }
 
@@ -62,7 +62,6 @@ if (await $`[[ -d ~/.SpaceVim ]]`.exitCode !== 0) {
   console.log("Installing SpaceVim...");
   console.time("Done!");
   await $`curl -sLf https://spacevim.org/install.sh | bash -s -- --install neovim`;
-  await $`cd ~/.SpaceVim && git checkout v1.8.0`;
   console.timeEnd("Done!");
 }
 

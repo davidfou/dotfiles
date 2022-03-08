@@ -6,7 +6,7 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'mattdavis90/base16-tmux'
 
 # Setup powerline
-source "$ASDF_DIR/installs/python/3.9.2/lib/python3.9/site-packages/powerline/bindings/tmux/powerline.conf"
+source "{{ template "pythonPath" ( list "powerline/bindings/tmux/powerline.conf" .) }}"
 
 # Apply base16 colors
 set -g @colors-base16 "$TMUX_BASE16_THEME"
