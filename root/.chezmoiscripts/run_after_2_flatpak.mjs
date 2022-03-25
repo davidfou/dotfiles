@@ -18,6 +18,8 @@ const applications = [
   "io.dbeaver.DBeaverCommunity",
   "com.getpostman.Postman",
   "com.uploadedlobster.peek",
+  "org.chromium.Chromium",
+  "org.signal.Signal",
 ]
 await $`flatpak install flathub -y ${applications}`;
 

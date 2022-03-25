@@ -19,4 +19,6 @@ await $`sudo update-locale LC_ADDRESS=fr_FR.UTF-8`;
 await $`sudo update-locale LC_TELEPHONE=fr_FR.UTF-8`;
 await $`sudo update-locale LC_MEASUREMENT=fr_FR.UTF-8`;
 await $`sudo update-locale LC_IDENTIFICATION=fr_FR.UTF-8`;
+
+await $`xdg-settings set default-web-browser org.mozilla.firefox.desktop`;
 console.timeEnd("Done!");

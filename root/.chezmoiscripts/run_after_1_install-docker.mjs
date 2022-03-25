@@ -37,8 +37,8 @@ if (await $`test -f ${stepFile}`.exitCode !== 0) {
   await $`sudo apt-get -o DPkg::Lock::Timeout=60 install -y docker-ce docker-ce-cli containerd.io`;
 
   // Instructions coming from https://docs.docker.com/engine/security/rootless/
-  // await $`sudo systemctl disable --now docker.service docker.socket`;
-  // await $`dockerd-rootless-setuptool.sh install`;
+  await $`sudo systemctl disable --now docker.service docker.socket`;
+  await $`dockerd-rootless-setuptool.sh install`;
 
   await installDockerCompose();
 

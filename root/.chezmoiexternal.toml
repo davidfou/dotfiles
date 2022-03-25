@@ -1,0 +1,3 @@
+["Workspace/perso/private_dotfiles"]
+    type = "git-repo"
+    url = "git@github.com:davidfou/private_dotfiles.git"
