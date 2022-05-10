@@ -14,7 +14,7 @@ if (await $`test -f ${stepFile}`.exitCode !== 0) {
   await $`sudo apt-get -o DPkg::Lock::Timeout=60 update`;
   const packages = [
     "exfat-fuse",
-    "exfat-utils",
+    "exfatprogs",
     "ubuntu-restricted-extras",
     "tmux",
     "neovim",

@@ -16,6 +16,7 @@ sudo apt-get -o DPkg::Lock::Timeout=60 install -y \
 {{- end }}
 
 . ~/.asdf/asdf.sh
+asdf install jq
 asdf install
 
 touch {{ joinPath .chezmoi.workingTree ".steps/step1" }}
