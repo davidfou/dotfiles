@@ -51,5 +51,9 @@ startup_pane: 2
 # attach: false
 
 windows:
-  - server: yarn dev
+  - server:
+      layout: even-horizontal
+      panes:
+        - build: yarn dev
+        - storybook: yarn storybook
   - editor: nvim

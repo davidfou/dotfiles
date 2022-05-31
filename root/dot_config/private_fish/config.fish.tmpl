@@ -12,9 +12,9 @@ end
 
 # Install fisher
 if not functions -q fisher
-    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
-    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-    fish -c fisher
+  set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+  curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
+  fish -c fisher
 end
 
 # Setup theme
@@ -28,8 +28,15 @@ end
 
 # Add op helper
 function op_signin
-    set -xg OP_SESSION_my (op signin my --raw)
+  set -xg OP_SESSION_my (op signin my --raw)
 end
+
+# Load prompt
+if type -q starship
+  starship init fish | source
+end
+
+fish_add_path ~/.local/bin
 
 set -xg EDITOR nvim
 set -xg DOCKER_HOST unix:///run/user/(id -u)/docker.sock

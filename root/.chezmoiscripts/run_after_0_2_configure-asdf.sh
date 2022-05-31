@@ -32,3 +32,4 @@ install_plugin java      https://github.com/halcyon/asdf-java.git
 install_plugin flutter   https://github.com/oae/asdf-flutter.git
 install_plugin awscli    https://github.com/MetricMike/asdf-awscli.git
 install_plugin dive      https://github.com/looztra/asdf-dive
+install_plugin rust      https://github.com/code-lever/asdf-rust.git

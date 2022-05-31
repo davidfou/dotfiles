@@ -11,6 +11,7 @@ if (await $`test -f ${stepFile}`.exitCode !== 0) {
   console.log("Installing some packages...");
   console.time("Done!");
   await $`echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections`;
+  await $`sudo add-apt-repository -y ppa:neovim-ppa/stable`;
   await $`sudo apt-get -o DPkg::Lock::Timeout=60 update`;
   const packages = [
     "exfat-fuse",
@@ -84,6 +85,10 @@ if (await $`[[ -d ~/.tmux/plugins/tpm ]]`.exitCode !== 0) {
   console.time("Done!");
   await $`git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`;
   console.timeEnd("Done!");
+}
+
+if (await $`hash starship`.exitCode !== 0) {
+  await $`curl -sS https://starship.rs/install.sh | sh -s -- -y`;
 }
 
 await $`hostnamectl set-hostname davidfou`;

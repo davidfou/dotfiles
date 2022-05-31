@@ -26,12 +26,20 @@
   bootstrap_before = "myspacevim#before"
   bootstrap_after = "myspacevim#after"
   autocomplete_method = "coc"
+  filemanager = "defx"
+
+[[layers]]
+name = 'core'
+enable_filetree_filetypeicon = true
+enable_filetree_gitstatus = true
+filetree_show_hidden = true
 
 [[layers]]
 name = 'VersionControl'
 
 [[layers]]
 name = 'git'
+git-plugin = "fugitive"
 
 [[layers]]
 name = 'colorscheme'
@@ -57,13 +65,6 @@ name = 'lang#typescript'
 [[layers]]
 name = "ctrlp"
 
-[[layers]]
-name = "rg"
-
-[[layers]]
-name = "git"
-git-plugin = "fugitive"
-
 [[layers]] 
 name = 'lsp'
 
@@ -77,3 +78,6 @@ merge = false
 
 [[layers]]
 name = "lang#dart"
+
+[[layers]]
+name = "lang#rust"
