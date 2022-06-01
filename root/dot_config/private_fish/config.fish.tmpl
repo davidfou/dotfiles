@@ -37,6 +37,11 @@ if type -q starship
 end
 
 fish_add_path ~/.local/bin
+set -x MOB_TIMER 40
+set -x MOB_TIMER_ROOM cumulio-backend
+set -x MOB_TIMER_USER davidfou
+set -x MOB_VOICE_MESSAGE "I have no clue what I'm doing, better someone takes over... Who is next?"
+set -x MOB_VOICE_COMMAND "espeak -v us-mbrola-1 \"%s\""
 
 set -xg EDITOR nvim
 set -xg DOCKER_HOST unix:///run/user/(id -u)/docker.sock
