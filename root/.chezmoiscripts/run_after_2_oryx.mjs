@@ -5,7 +5,7 @@ import path from 'path';
 // https://github.com/zsa/wally/wiki/Live-training-on-Linux
 // https://github.com/zsa/wally/wiki/Linux-install
 console.log(chalk.blue(`Running run_after_2_oryx...`));
-$.verbose = true;
+$.verbose = false;
 
 const FILE_PATH = '/etc/udev/rules.d/50-oryx.rules';
 const CONTENT = `

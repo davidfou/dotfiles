@@ -12,7 +12,7 @@ if (await $`type -q ngrok`.exitCode !== 0) {
   await $`echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list`;
   await $`sudo apt-get -o DPkg::Lock::Timeout=60 update`;
   await $`sudo apt-get -o DPkg::Lock::Timeout=60 install -y ngrok`;
-  const token = await $`op get item "dissohgy55byxfie3l4zq5w6me" --fields token`;
+  const token = await $`op item get "dissohgy55byxfie3l4zq5w6me" --fields token`;
   await $`ngrok authtoken ${token}`;
   console.timeEnd("Done!");
 }

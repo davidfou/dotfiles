@@ -32,19 +32,19 @@ Secret.password_store_sync(
 `;
 
 for (const key of keys) {
-  const publicKey = await $`op get item ${key} --fields info.public`;
+  const publicKey = await $`op item get ${key} --fields info.public`;
   if (await $`gpg --list-keys ${publicKey}`.exitCode === 0) {
     continue;
   }
-  const title = await $`op get item ${key} --fields title`;
+  const title = await $`op item get ${key} --format json | jq -r .title`;
   console.log(`Installing key ${title.toString().trim()}...`)
-  const password = await $`op get item ${key} --fields info.password`;
+  const password = await $`op item get ${key} --fields info.password`;
   const keygrips = [
-    await $`op get item ${key} --fields info.keygrip`,
-    await $`op get item ${key} --fields info.keygrip2`,
+    await $`op item get ${key} --fields info.keygrip`,
+    await $`op item get ${key} --fields info.keygrip2`,
   ]
   for (const keygrip of keygrips) {
-    await $`op get document ${key} | gpg --import --pinentry-mode loopback --passphrase=${password}`;
+    await $`op document get ${key} | gpg --import --pinentry-mode loopback --passphrase=${password}`;
     await $`echo ${publicKey}:6: | gpg --import-ownertrust`;
     await $`gjs -c ${generateCode(keygrip.toString().trim(), password.toString().trim())}`;
   }
