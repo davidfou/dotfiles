@@ -5,7 +5,7 @@ $.verbose = false;
 
 const stepFile = await $`chezmoi data | jq -r '.chezmoi.workingTree + "/.steps/step3"'`;
 
-const installDockerCompose = async (version = 'v2.2.3') => {
+const installDockerCompose = async (version = 'v2.5.0') => {
   const kernelName = await $`uname -s`;
   const machine = await $`uname -m`;
   await $`sudo curl -L "https://github.com/docker/compose/releases/download/${version}/docker-compose-${kernelName}-${machine}" -o /usr/local/bin/docker-compose`;

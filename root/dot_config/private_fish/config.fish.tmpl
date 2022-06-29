@@ -28,7 +28,11 @@ end
 
 # Add op helper
 function op_signin
-  set -xg OP_SESSION_my (op signin my --raw)
+  set -xg OP_SESSION_my (op signin --account my --raw)
+end
+
+if type -q op
+  op completion fish | source
 end
 
 # Load prompt
