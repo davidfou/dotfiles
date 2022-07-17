@@ -29,55 +29,59 @@
   filemanager = "defx"
 
 [[layers]]
-name = 'core'
-enable_filetree_filetypeicon = true
-enable_filetree_gitstatus = true
-filetree_show_hidden = true
+  name = 'ui'
+  indentline_char = ''
 
 [[layers]]
-name = 'VersionControl'
+  name = 'core'
+  enable_filetree_filetypeicon = true
+  enable_filetree_gitstatus = true
+  filetree_show_hidden = true
 
 [[layers]]
-name = 'git'
-git-plugin = "fugitive"
+  name = 'VersionControl'
 
 [[layers]]
-name = 'colorscheme'
+  name = 'git'
+  git-plugin = "fugitive"
 
 [[layers]]
-name = 'shell'
-default_position = 'top'
-default_height = 30
+  name = 'colorscheme'
 
 [[layers]]
-name = 'tmux'
+  name = 'shell'
+  default_position = 'top'
+  default_height = 30
 
 [[layers]]
-name = 'checkers'
+  name = 'tmux'
 
 [[layers]]
-name = 'lang#javascript'
-auto_fix = false
+  name = 'checkers'
 
 [[layers]]
-name = 'lang#typescript'
+  name = 'lang#javascript'
+  auto_fix = false
 
 [[layers]]
-name = "ctrlp"
+  name = 'lang#typescript'
+
+[[layers]]
+  name = "ctrlp"
 
 [[layers]] 
-name = 'lsp'
+  name = 'lsp'
 
 [[custom_plugins]]
-name = 'peitalin/vim-jsx-typescript'
-merge = false
+  name = 'peitalin/vim-jsx-typescript'
+  merge = false
 
 [[custom_plugins]]
-name = 'evanleck/vim-svelte'
-merge = false
+  name = 'evanleck/vim-svelte'
+  merge = false
 
 [[layers]]
-name = "lang#dart"
+  name = "lang#dart"
 
 [[layers]]
-name = "lang#rust"
+  name = "lang#rust"
