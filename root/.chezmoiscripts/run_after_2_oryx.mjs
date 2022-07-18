@@ -7,12 +7,13 @@ import path from 'path';
 console.log(chalk.blue(`Running run_after_2_oryx...`));
 $.verbose = false;
 
-const FILE_PATH = '/etc/udev/rules.d/50-oryx.rules';
+const FILE_PATH = '/etc/udev/rules.d/50-zsa.rules';
 const CONTENT = `
-# Rule for the Ergodox EZ
-SUBSYSTEM=="usb", ATTR{idVendor}=="feed", ATTR{idProduct}=="1307", GROUP="plugdev"
+# Rules for Oryx web flashing and live training
+KERNEL=="hidraw*", ATTRS{idVendor}=="16c0", MODE="0664", GROUP="plugdev"
+KERNEL=="hidraw*", ATTRS{idVendor}=="3297", MODE="0664", GROUP="plugdev"
 
-# Teensy rules for the Ergodox EZ
+# Wally Flashing rules for the Ergodox EZ
 ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789B]?", ENV{ID_MM_DEVICE_IGNORE}="1"
 ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789A]?", ENV{MTP_NO_PROBE}="1"
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789ABCD]?", MODE:="0666"
@@ -29,8 +30,9 @@ if (await $`test -f ${FILE_PATH}`.exitCode !== 0) {
 
   await $`sudo apt-get -o DPkg::Lock::Timeout=60 update`;
   await $`sudo apt-get -o DPkg::Lock::Timeout=60 install -y libusb-1.0-0-dev`;
+  await $`sudo flatpak override --device=all org.chromium.Chromium`;
 
-  await $`sudo curl -fsSL -o ${OUTPUT} ${BIN_URL}`;
+  await $`curl -fsSL -o ${OUTPUT} ${BIN_URL}`;
   await $`chmod u+x ${OUTPUT}`
   console.timeEnd("Done!");
 }
