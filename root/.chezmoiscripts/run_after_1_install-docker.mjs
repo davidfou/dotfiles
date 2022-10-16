@@ -28,6 +28,8 @@ if (await $`test -f ${stepFile}`.exitCode !== 0) {
   await $`sudo apt-get -o DPkg::Lock::Timeout=60 update`;
   await $`sudo apt-get -o DPkg::Lock::Timeout=60 install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin`;
   await $`sudo service docker start`;
+  await $`sudo systemctl enable docker.service`;
+  await $`sudo systemctl enable containerd.service`;
 
   await $`touch ${stepFile}`;
   console.timeEnd("Done!");

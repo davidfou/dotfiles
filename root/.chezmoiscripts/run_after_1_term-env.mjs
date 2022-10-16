@@ -25,7 +25,7 @@ if (await $`test -f ${stepFile}`.exitCode !== 0) {
     "libcairo2-dev",
     "libpango1.0-dev",
     "libjpeg8-dev",
-    "docker-credential-helper-ecr",
+    "amazon-ecr-credential-helper",
   ];
   await $`sudo apt-get -o DPkg::Lock::Timeout=60 install -y ${packages}`;
   await $`touch ${stepFile}`;
