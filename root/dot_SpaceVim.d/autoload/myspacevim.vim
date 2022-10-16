@@ -9,7 +9,8 @@ function! myspacevim#before() abort
     \'coc-spell-checker',
     \'coc-svelte',
     \'coc-tsserver',
-    \'coc-flutter'
+    \'coc-flutter',
+    \'coc-rust-analyzer'
     \]
 
   " Use eslint for typescript files
