@@ -11,14 +11,12 @@ if (await $`test -f ${stepFile}`.exitCode !== 0) {
   console.log("Installing some packages...");
   console.time("Done!");
   await $`echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections`;
-  await $`sudo add-apt-repository -y ppa:neovim-ppa/stable`;
   await $`sudo apt-get -o DPkg::Lock::Timeout=60 update`;
   const packages = [
     "exfat-fuse",
     "exfatprogs",
     "ubuntu-restricted-extras",
     "tmux",
-    "neovim",
     "ripgrep",
     "libsecret-tools",
     "libjpeg-dev",
@@ -57,13 +55,6 @@ if (await $`[[ -f ~/.config/fish/completions/chezmoi.fish ]]`.exitCode !== 0) {
   console.log("Installing chezmoi completion...");
   console.time("Done!");
   await $`chezmoi completion fish --output=~/.config/fish/completions/chezmoi.fish`;
-  console.timeEnd("Done!");
-}
-
-if (await $`[[ -d ~/.SpaceVim ]]`.exitCode !== 0) {
-  console.log("Installing SpaceVim...");
-  console.time("Done!");
-  await $`curl -sLf https://spacevim.org/install.sh | bash -s -- --install neovim`;
   console.timeEnd("Done!");
 }
 
