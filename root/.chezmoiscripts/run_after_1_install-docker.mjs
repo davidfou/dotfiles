@@ -30,6 +30,7 @@ if (await $`test -f ${stepFile}`.exitCode !== 0) {
   await $`sudo service docker start`;
   await $`sudo systemctl enable docker.service`;
   await $`sudo systemctl enable containerd.service`;
+  await $`sudo usermod -aG docker $USER`;
 
   await $`touch ${stepFile}`;
   console.timeEnd("Done!");
