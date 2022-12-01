@@ -25,7 +25,6 @@ const OUTPUT = path.join(process.env.HOME, '.local/bin/wally');
 if (await $`test -f ${FILE_PATH}`.exitCode !== 0) {
   console.log("Installing oryx...");
   console.time("Done!");
-  await $`echo ${CONTENT} | sudo tee ${FILE_PATH}`;
   await $`sudo usermod -aG plugdev $USER`;
 
   await $`sudo apt-get -o DPkg::Lock::Timeout=60 update`;
@@ -34,5 +33,6 @@ if (await $`test -f ${FILE_PATH}`.exitCode !== 0) {
 
   await $`curl -fsSL -o ${OUTPUT} ${BIN_URL}`;
   await $`chmod u+x ${OUTPUT}`
+  await $`echo ${CONTENT} | sudo tee ${FILE_PATH}`;
   console.timeEnd("Done!");
 }
