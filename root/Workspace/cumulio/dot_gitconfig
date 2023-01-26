@@ -1,4 +1,3 @@
 [user]
 	email = david@cumul.io
-[commit]
-	gpgsign = false
+	signingkey = B5F7AF7639763C39
