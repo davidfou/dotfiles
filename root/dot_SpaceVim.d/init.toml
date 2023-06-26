@@ -77,6 +77,10 @@
   merge = false
 
 [[custom_plugins]]
+  name = 'github/copilot.vim'
+  merge = false
+
+[[custom_plugins]]
   name = 'evanleck/vim-svelte'
   merge = false
 

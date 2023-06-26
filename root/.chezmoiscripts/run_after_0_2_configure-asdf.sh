@@ -37,3 +37,4 @@ install_plugin neovim        https://github.com/richin13/asdf-neovim
 install_plugin azure-cli     https://github.com/itspngu/asdf-azure-cli
 install_plugin pulumi        https://github.com/canha/asdf-pulumi.git
 install_plugin golang        https://github.com/kennyp/asdf-golang.git
+install_plugin github-cli    https://github.com/bartlomiejdanek/asdf-github-cli.git
