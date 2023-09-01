@@ -18,7 +18,7 @@ else
     dirmngr gpg `# asdf nodejs requirements` \
     unzip `# asdf 1password requirements`
 
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch {{ .asdfVersion }}
   mkdir -p ~/.config/fish/completions
   ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 
