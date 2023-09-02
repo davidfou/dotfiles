@@ -39,3 +39,4 @@ install_plugin pulumi        https://github.com/canha/asdf-pulumi.git
 install_plugin golang        https://github.com/kennyp/asdf-golang.git
 install_plugin github-cli    https://github.com/bartlomiejdanek/asdf-github-cli.git
 install_plugin firebase      https://github.com/jthegedus/asdf-firebase.git
+install_plugin bitwarden     https://github.com/vixus0/asdf-bitwarden.git
