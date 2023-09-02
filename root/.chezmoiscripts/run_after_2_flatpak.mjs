@@ -1,17 +1,15 @@
 #!/usr/bin/env zx
 
-console.log(chalk.blue(`Running run_2_flatpak...`))
+console.log(chalk.blue(`Running run_2_flatpak...`));
 $.verbose = false;
 
 console.time("Done!");
 
-await $`sudo apt-get -o DPkg::Lock::Timeout=60 remove -y firefox`;
 await $`flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo`;
 
 const applications = [
   "fr.free.Homebank",
   "com.slack.Slack",
-  "org.mozilla.firefox",
   "com.spotify.Client",
   "com.valvesoftware.Steam",
   "us.zoom.Zoom",
@@ -20,7 +18,11 @@ const applications = [
   "com.uploadedlobster.peek",
   "org.chromium.Chromium",
   "org.signal.Signal",
-]
+  "org.wezfurlong.wezterm",
+];
 await $`flatpak install flathub -y ${applications}`;
+
+// TODO: make wezterm the default terminal
+// await $`sudo update-alternatives --set x-terminal-emulator /usr/bin/kitty`;
 
 console.timeEnd("Done!");

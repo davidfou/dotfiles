@@ -1,10 +1,10 @@
 #!/usr/bin/env zx
 
 console.log(chalk.blue(`Running run_2_1password...`));
-$.shell = '/usr/bin/fish';
+$.shell = "/usr/bin/fish";
 $.verbose = false;
 
-if (await $`type -q 1password`.exitCode !== 0) {
+if ((await $`type -q 1password`.exitCode) !== 0) {
   console.log("Installing 1password...");
   console.time("Done!");
 
