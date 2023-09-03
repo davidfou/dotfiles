@@ -17,15 +17,6 @@ if not functions -q fisher
   fish -c fisher
 end
 
-# Setup theme
-# To avoid tmux to be blocked (https://github.com/tomyun/base16-fish/issues/7)
-if test -f ~/.config/fish/conf.d/base16.fish
-  rm ~/.config/fish/conf.d/base16.fish
-end
-if status --is-interactive && test -z "$TMUX"
-  base16-solarized-dark
-end
-
 # Add op helper
 function op_signin
   set -xg OP_SESSION_my (op signin --account my --raw)
@@ -49,4 +40,3 @@ set -x MOB_DONE_SQUASH squash-wip
 set -x MOB_WIP_COMMIT_MESSAGE "mob next"
 
 set -xg EDITOR nvim
-set -xg TMUX_BASE16_THEME $base16_theme
