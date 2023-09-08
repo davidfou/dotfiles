@@ -27,6 +27,7 @@ if ((await $`test -f ${stepFile}`.exitCode) !== 0) {
     "libpango1.0-dev",
     "libjpeg8-dev",
     "amazon-ecr-credential-helper",
+    "libnotify-bin", // for fisher done plugin
   ];
   await $`sudo apt-get -o DPkg::Lock::Timeout=60 install -y ${packages}`;
   await $`touch ${stepFile}`;

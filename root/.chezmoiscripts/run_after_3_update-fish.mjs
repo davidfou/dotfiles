@@ -2,7 +2,8 @@
 
 console.log(chalk.blue(`Running run_3_update-fish...`));
 $.verbose = false;
-$.shell = '/usr/bin/fish';
+$.shell = "/usr/bin/fish";
+$.prefix = "";
 
 console.time("Done!");
 await $`fisher update`;
