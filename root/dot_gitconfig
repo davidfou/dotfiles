@@ -14,3 +14,5 @@
 	path = ~/Workspace/cumulio/.gitconfig
 [pull]
 	ff = only
+[init]
+  defaultBranch = main
