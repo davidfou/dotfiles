@@ -40,3 +40,4 @@ install_plugin github-cli https://github.com/bartlomiejdanek/asdf-github-cli.git
 install_plugin firebase https://github.com/jthegedus/asdf-firebase.git
 install_plugin bitwarden https://github.com/vixus0/asdf-bitwarden.git
 install_plugin lazygit https://github.com/nklmilojevic/asdf-lazygit.git
+install_plugin starship https://github.com/85clab0/asdf-starship.git

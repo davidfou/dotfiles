@@ -76,9 +76,5 @@ if ((await $`[[ -d ~/.tmux/plugins/tpm ]]`.exitCode) !== 0) {
   console.timeEnd("Done!");
 }
 
-if ((await $`hash starship`.exitCode) !== 0) {
-  await $`curl -sS https://starship.rs/install.sh | sh -s -- -y`;
-}
-
 await $`hostnamectl set-hostname davidfou`;
 await $`hostnamectl set-hostname "David Fournier" --pretty`;
