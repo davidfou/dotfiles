@@ -18,11 +18,7 @@ const applications = [
   "com.uploadedlobster.peek",
   "org.chromium.Chromium",
   "org.signal.Signal",
-  "org.wezfurlong.wezterm",
 ];
 await $`flatpak install flathub -y ${applications}`;
-
-// TODO: make wezterm the default terminal
-// await $`sudo update-alternatives --set x-terminal-emulator /usr/bin/kitty`;
 
 console.timeEnd("Done!");

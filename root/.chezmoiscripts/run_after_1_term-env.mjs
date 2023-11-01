@@ -53,22 +53,6 @@ if (
   console.timeEnd("Done!");
 }
 
-const fontFolder = `${process.env.HOME}/.local/share/fonts`;
-const fontFamily = "Retina";
-const fontName = `Fira Code ${fontFamily} Nerd Font Complete Mono.ttf`;
-if ((await $`[[ -f ${fontFolder}/${fontName} ]]`.exitCode) !== 0) {
-  console.log("Installing Nerd font...");
-  console.time("Done!");
-  const fontUrl = `https://raw.githubusercontent.com/ryanoasis/nerd-fonts/v2.1.0/patched-fonts/FiraCode/${fontFamily}/complete/${encodeURIComponent(
-    fontName
-  )}`;
-  await fs.mkdir(fontFolder, { recursive: true });
-  await $`curl -fsSL -o ${fontFolder}/${fontName} ${fontUrl}`;
-  await $`fc-cache -r`;
-  console.timeEnd("Done!");
-}
-// TODO: check new version
-
 if ((await $`[[ -d ~/.tmux/plugins/tpm ]]`.exitCode) !== 0) {
   console.log("Installing Tpm...");
   console.time("Done!");

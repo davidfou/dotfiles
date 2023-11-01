@@ -1,2 +1,5 @@
-pythonVersion = "3.10.8"
-asdfVersion = "v0.12.0"
+[extraToolVersion]
+python = "3.10.8"
+asdf = "v0.12.0"
+kitty = "0.30.1"
+nerdFonts = "3.0.2"
