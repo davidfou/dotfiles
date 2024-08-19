@@ -1,9 +1,0 @@
-/.steps
-/root/dot_config/nvim/**/tt.*
-/root/dot_config/nvim/**/.tests
-/root/dot_config/nvim/**/doc/tags
-/root/dot_config/nvim/**/debug
-/root/dot_config/nvim/**/.repro
-/root/dot_config/nvim/**/foo.*
-/root/dot_config/nvim/**/*.log
-/root/dot_config/nvim/**/data

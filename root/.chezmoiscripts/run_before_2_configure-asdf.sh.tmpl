@@ -1,0 +1,22 @@
+{{- template "bash-prefix" "run_before_2_configure-asdf" }}
+
+install_plugin() {
+	set +e
+	$(asdf list $1 >/dev/null 2>&1)
+	is_installed=$?
+	set -e
+	if [ $is_installed -eq 0 ]; then
+		echo "[skip] asdf plugin $1 already installed"
+	else
+		echo "->  Installing $1 asdf plugin..."
+		asdf plugin add $1 $2
+	fi
+}
+
+. ~/.asdf/asdf.sh
+install_plugin nodejs https://github.com/asdf-vm/asdf-nodejs.git
+install_plugin 1password-cli https://github.com/NeoHsu/asdf-1password-cli.git
+install_plugin jq https://github.com/AZMCode/asdf-jq.git
+install_plugin neovim https://github.com/richin13/asdf-neovim
+install_plugin lazygit https://github.com/nklmilojevic/asdf-lazygit.git
+install_plugin starship https://github.com/85clab0/asdf-starship.git

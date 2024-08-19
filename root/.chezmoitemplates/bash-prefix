@@ -1,0 +1,8 @@
+
+#!/bin/bash
+
+set -e
+
+blue=`tput setaf 4`
+reset=`tput sgr0`
+echo "${blue}Running {{ . }}...${reset}"

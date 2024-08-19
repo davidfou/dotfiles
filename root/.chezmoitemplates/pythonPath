@@ -1,1 +1,0 @@
-$ASDF_DIR/installs/python/{{ (index . 1).extraToolVersion.python }}/lib/python{{ slice (splitList "." (index . 1).extraToolVersion.python) 0 2 | join "." }}/site-packages/{{ (index . 0) -}}

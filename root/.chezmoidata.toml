@@ -1,5 +1,6 @@
 [extraToolVersion]
-python = "3.10.8"
-asdf = "v0.12.0"
-kitty = "0.30.1"
-nerdFonts = "3.0.2"
+asdf = "v0.14.1"
+
+[asdf]
+jq = "1.7.0"
+onepassword-cli = "1.30.0"

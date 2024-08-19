@@ -1,6 +1,0 @@
-# Hack for the first run
-{{- if (stat (joinPath .chezmoi.workingTree ".steps/step1")) }}
-["Workspace/perso/private_dotfiles"]
-    type = "git-repo"
-    url = "git@github.com:davidfou/private_dotfiles.git"
-{{- end }}
