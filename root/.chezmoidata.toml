@@ -2,5 +2,5 @@
 asdf = "v0.14.1"
 
 [asdf]
-jq = "1.7.0"
+jq = "1.7.1"
 onepassword_cli = "1.30.0"
