@@ -30,10 +30,10 @@ else
 
   {{ else if eq .chezmoi.os "darwin" }}
   brew bundle --no-lock --file=/dev/stdin <<EOF
-  brew "coreutils"
-  brew "curl"
-  brew "git"
-  EOF
+brew "coreutils"
+brew "curl"
+brew "git"
+EOF
   {{ end -}}
 
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch {{ .extraToolVersion.asdf }}
