@@ -1,0 +1,7 @@
+{{- template "bash-prefix" "run_after_0_3_install-asdf" }}
+
+. ~/.asdf/asdf.sh
+asdf install jq
+asdf install
+
+touch {{ joinPath .chezmoi.workingTree ".steps/step1" }}

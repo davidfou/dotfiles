@@ -1,9 +1,0 @@
-{{- template "bash-prefix" "run_before_3_install-asdf" }}
-
-. ~/.asdf/asdf.sh
-asdf install jq {{ .asdf.jq }}
-asdf install 1password-cli {{ .asdf.onepassword_cli }}
-
-if [ -x "$(command -v op)" ]; then
-  asdf global 1password-cli {{ .asdf.onepassword_cli }}
-fi

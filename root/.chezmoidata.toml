@@ -1,6 +1,2 @@
 [extraToolVersion]
 asdf = "v0.14.1"
-
-[asdf]
-jq = "1.7.1"
-onepassword_cli = "2.30.0"
