@@ -1,0 +1,9 @@
+{{- template "bash-prefix" "run_after_1_homebrew-packages" }}
+
+{{- if eq .chezmoi.os "darwin" -}}
+brew bundle --no-lock --file=/dev/stdin <<EOF
+cask "arc"
+EOF
+{{ else }}
+echo "[skip] not on MacOS"
+{{ end -}}
