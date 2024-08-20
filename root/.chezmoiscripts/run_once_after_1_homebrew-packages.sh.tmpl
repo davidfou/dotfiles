@@ -3,6 +3,7 @@
 {{- if eq .chezmoi.os "darwin" -}}
 brew bundle --no-lock --file=/dev/stdin <<EOF
 cask "arc"
+cask "1password"
 EOF
 {{ else }}
 echo "[skip] not on MacOS"
