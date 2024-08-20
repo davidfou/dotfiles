@@ -4,9 +4,6 @@
 asdf install jq {{ .asdf.jq }}
 asdf install 1password-cli {{ .asdf.onepassword_cli }}
 
-asdf shell 1password-cli {{ .asdf.onepassword_cli }}
-
-# check if the command `op list account --format=json | jq length` returns 0
-if [ "$(op list account --format=json | jq length)" -eq 0 ]; then
-  op account add
+if [ -x "$(command -v op)" ]; then
+  asdf global 1password-cli {{ .asdf.onepassword_cli }}
 fi
