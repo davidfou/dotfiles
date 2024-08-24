@@ -1,5 +1,7 @@
 #!/usr/bin/env zx
 
+import os from "os";
+
 /**
  * How to create a new key:
  * - `gpg --full-generate-key` (create a new key)
@@ -25,4 +27,9 @@ for (const { id, title } of keys) {
   const password = await $`op item get ${id} --fields info.password --reveal`;
   await $`op document get ${id} | gpg --import --pinentry-mode loopback --passphrase ${password}`;
   await $`echo ${publicKey}:6: | gpg --import-ownertrust`;
+
+  if (os.platform() === "darwin") {
+    const keygrip = await $`op item get ${id} --fields info.keygrip --reveal`;
+    await $`security add-generic-password -a ${keygrip} -s "GnuPG" -w ${password} -l ${title} -T "" -T "/opt/homebrew/bin/pinentry-mac"`;
+  }
 }
