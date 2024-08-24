@@ -9,8 +9,8 @@ cask "signal"
 cask "proton-mail"
 cask "slack"
 
-install "gnupg"
-install "pinentry-mac"
+brew "gnupg"
+brew "pinentry-mac"
 EOF
 {{ else }}
 echo "[skip] not on MacOS"
