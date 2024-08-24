@@ -13,33 +13,6 @@
 console.log(chalk.blue(`Running run_after_1_import-keys...`));
 $.verbose = false;
 
-const generateCode = (keygrip, password) => `
-const Secret = imports.gi.Secret;
-
-const schema = new Secret.Schema(
-  "org.gnupg.Passphrase",
-  Secret.SchemaFlags.NONE,
-  {
-    "keygrip": Secret.SchemaAttributeType.STRING,
-    "stored-by": Secret.SchemaAttributeType.STRING,
-  }
-);
-
-const attributes = {
-  "keygrip": ${JSON.stringify("n/" + keygrip)},
-  "stored-by": "GnuPG Pinentry",
-};
-
-Secret.password_store_sync(
-  schema,
-  attributes,
-  Secret.COLLECTION_DEFAULT,
-  ${JSON.stringify("GnuPG: n/" + keygrip)},
-  ${JSON.stringify(password)},
-  null
-);
-`;
-
 const keys = JSON.parse(
   (await $`op item list --tags gpg-key --format json`).toString().trim(),
 );
@@ -49,13 +22,7 @@ for (const { id, title } of keys) {
     continue;
   }
   console.log(`Installing key ${title.toString().trim()}...`);
-  const password = await $`op item get ${id} --fields info.password`;
-  const keygrips = [
-    await $`op item get ${id} --fields info.keygrip`,
-    await $`op item get ${id} --fields info.keygrip2`,
-  ];
-  for (const keygrip of keygrips) {
-    await $`op document get ${id} | gpg --import --pinentry-mode loopback --passphrase=${password}`;
-    await $`echo ${publicKey}:6: | gpg --import-ownertrust`;
-  }
+  const password = await $`op item get ${id} --fields info.password --reveal`;
+  await $`op document get ${id} | gpg --import --pinentry-mode loopback --passphrase ${password}`;
+  await $`echo ${publicKey}:6: | gpg --import-ownertrust`;
 }
