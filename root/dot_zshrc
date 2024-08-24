@@ -1,0 +1,9 @@
+if [ -f ~/.asdf/asdf.sh ]; then
+  . "$HOME/.asdf/asdf.sh"
+  # append completions to fpath
+  fpath=(${ASDF_DIR}/completions $fpath)
+  # initialise completions with ZSH's compinit
+  autoload -Uz compinit && compinit
+fi
+
+export PATH=/opt/homebrew/bin:$HOME/.local/bin:$PATH

@@ -1,0 +1,15 @@
+[".config/kitty/themes/tokyonight_day.conf"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/stable/extras/kitty/tokyonight_day.conf"
+
+[".config/kitty/themes/tokyonight_moon.conf"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/stable/extras/kitty/tokyonight_moon.conf"
+
+[".config/kitty/themes/tokyonight_night.conf"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/stable/extras/kitty/tokyonight_night.conf"
+
+[".config/kitty/themes/tokyonight_storm.conf"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/stable/extras/kitty/tokyonight_storm.conf"
