@@ -15,3 +15,10 @@ if (os.platform() === "darwin") {
     await $`chsh -s ${FISH_PATH}`;
   }
 }
+
+if ((await $`[[ -d ~/.config/tmux/plugins/tpm ]]`.exitCode) !== 0) {
+  console.log("Installing Tpm...");
+  console.time("Done!");
+  await $`git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm`;
+  console.timeEnd("Done!");
+}
