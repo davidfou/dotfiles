@@ -15,3 +15,6 @@
 	ff = only
 [init]
   defaultBranch = main
+
+[includeIf "gitdir:~/Workspace/segments/"]
+  path = ~/Workspace/segments/.gitconfig
