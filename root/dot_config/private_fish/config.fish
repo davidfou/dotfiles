@@ -1,11 +1,11 @@
+# Reset PATH
+set -gx PATH $HOME/.local/bin /usr/local/bin /System/Cryptexes/App/usr/bin /usr/bin /bin /usr/sbin /sbin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin /Applications/kitty.app/Contents/MacOS
+
 # Load asdf
 source ~/.asdf/asdf.fish
 
 # Load homebrew
 /opt/homebrew/bin/brew shellenv fish | source
-
-# Load local binaries
-fish_add_path ~/.local/bin
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
