@@ -1,11 +1,12 @@
+{{- /* chezmoi:modify-template */ -}}
 # Reset PATH
 set -gx PATH $HOME/.local/bin /usr/local/bin /System/Cryptexes/App/usr/bin /usr/bin /bin /usr/sbin /sbin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin /Applications/kitty.app/Contents/MacOS
 
-# Load asdf
-source ~/.asdf/asdf.fish
-
 # Load homebrew
 /opt/homebrew/bin/brew shellenv fish | source
+
+# Load asdf
+source ~/.asdf/asdf.fish
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
@@ -31,4 +32,10 @@ if status is-interactive
     if type -q starship
         starship init fish | source
     end
+
+    set -xg TMUX_POWERLINE_DIR_USER_SEGMENTS ~/.config/tmux-powerline/segments
+    set -xg TMUX_POWERLINE_DIR_USER_THEMES ~/.config/tmux-powerline/themes
+    set -xg TMUX_POWERLINE_THEME my-theme
 end
+# --- END ---
+{{- .chezmoi.stdin | splitList "# --- END ---" | rest | join "\n" -}}

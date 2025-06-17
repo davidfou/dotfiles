@@ -8,18 +8,10 @@ return {
   opts = {
     adapters = {
       ["neotest-vitest"] = {},
+      ["neotest-playwright"] = {
+        persist_project_selection = true,
+        enable_dynamic_test_discovery = true,
+      },
     },
   },
-  config = function()
-    require("neotest").setup({
-      adapters = {
-        require("neotest-playwright").adapter({
-          options = {
-            persist_project_selection = true,
-            enable_dynamic_test_discovery = true,
-          },
-        }),
-      },
-    })
-  end,
 }
