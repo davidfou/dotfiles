@@ -2,6 +2,9 @@
 # Reset PATH
 set -gx PATH $HOME/.local/bin /usr/local/bin /System/Cryptexes/App/usr/bin /usr/bin /bin /usr/sbin /sbin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin /var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin /Applications/kitty.app/Contents/MacOS
 
+# Shorten zellij socket dir to avoid 103-byte Unix socket path limit on macOS
+set -gx ZELLIJ_SOCKET_DIR /tmp/zellij-(id -u)
+
 # Load homebrew
 /opt/homebrew/bin/brew shellenv fish | source
 
@@ -32,10 +35,6 @@ if status is-interactive
     if type -q starship
         starship init fish | source
     end
-
-    set -xg TMUX_POWERLINE_DIR_USER_SEGMENTS ~/.config/tmux-powerline/segments
-    set -xg TMUX_POWERLINE_DIR_USER_THEMES ~/.config/tmux-powerline/themes
-    set -xg TMUX_POWERLINE_THEME my-theme
 end
 # --- END ---
 {{- .chezmoi.stdin | splitList "# --- END ---" | rest | join "\n" -}}
