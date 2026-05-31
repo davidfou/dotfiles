@@ -8,19 +8,20 @@ set -gx ZELLIJ_SOCKET_DIR /tmp/zellij-(id -u)
 # Load homebrew
 /opt/homebrew/bin/brew shellenv fish | source
 
-# Load asdf
-source ~/.asdf/asdf.fish
+# Load mise
+if type -q mise
+    mise activate fish | source
+end
 
 if status is-interactive
     # Commands to run in interactive sessions can go here
     set -xg EDITOR nvim
-    if not test -f ~/.config/fish/completions/asdf.fish
-        mkdir -p ~/.config/fish/completions
-        ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
-    end
-
     if not test -f ~/.config/fish/completions/chezmoi.fish
         chezmoi completion fish --output=~/.config/fish/completions/chezmoi.fish
+    end
+
+    if not test -f ~/.config/fish/completions/mise.fish
+        mise completion fish > ~/.config/fish/completions/mise.fish
     end
 
     if test -f ~/.config/fish/themes/TokyoNight\ Storm.theme

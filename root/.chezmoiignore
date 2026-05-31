@@ -2,6 +2,6 @@
 {{- if not (stat (joinPath .chezmoi.workingTree ".steps/step1")) }}
 **
 !/.chezmoiscripts/0_*
-!/.tool-versions
+!/.config/mise/config.toml
 !/.default-*
 {{- end }}

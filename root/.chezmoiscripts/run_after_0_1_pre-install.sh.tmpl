@@ -9,35 +9,31 @@ else
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   export PATH=/opt/homebrew/bin:$PATH
 fi
-{{ end -}}
 
-# Install asdf
-if test -d ~/.asdf
-then
-  echo "[skip] Asdf already installed"
+# Install mise via Homebrew
+if [ -x "$(command -v mise)" ]; then
+  echo "[skip] mise already installed"
 else
-  echo "-> Installing asdf"
-  # Install asdf dependencies
-  {{ if eq .chezmoi.os "linux" -}}
-  sudo apt-get -o DPkg::Lock::Timeout=60 update
-  sudo apt-get -o DPkg::Lock::Timeout=60 install -y \
-    curl git `# asdf requirements` \
-    dirmngr gpg `# asdf nodejs requirements` \
-    unzip `# asdf 1password requirements` \
-    `# python requirements` \
-    build-essential libssl-dev zlib1g-dev libbz2-dev \
-    libreadline-dev libsqlite3-dev wget llvm libncurses5-dev libncursesw5-dev \
-    xz-utils tk-dev libffi-dev liblzma-dev
-
-  {{ else if eq .chezmoi.os "darwin" }}
-  brew bundle --no-lock --file=/dev/stdin <<EOF
-brew "coreutils"
-brew "curl"
-brew "git"
-EOF
-  {{ end -}}
-
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch {{ .extraToolVersion.asdf }}
-
-  . $HOME/.asdf/asdf.sh
+  echo "-> Installing mise"
+  brew install mise
 fi
+{{ else if eq .chezmoi.os "linux" -}}
+# Install build dependencies (needed for mise to compile python, etc.)
+sudo apt-get -o DPkg::Lock::Timeout=60 update
+sudo apt-get -o DPkg::Lock::Timeout=60 install -y \
+  curl git \
+  dirmngr gpg \
+  unzip \
+  build-essential libssl-dev zlib1g-dev libbz2-dev \
+  libreadline-dev libsqlite3-dev wget llvm libncurses5-dev libncursesw5-dev \
+  xz-utils tk-dev libffi-dev liblzma-dev
+
+# Install mise via official installer
+if [ -x "$(command -v mise)" ]; then
+  echo "[skip] mise already installed"
+else
+  echo "-> Installing mise"
+  curl https://mise.run | sh
+  export PATH=$HOME/.local/bin:$PATH
+fi
+{{ end -}}

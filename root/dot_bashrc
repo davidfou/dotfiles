@@ -1,6 +1,5 @@
-if [ -f ~/.asdf/asdf.sh ]; then
-  . "$HOME/.asdf/asdf.sh"
-  . "$HOME/.asdf/completions/asdf.bash"
-fi
-
 export PATH=/opt/homebrew/bin:$HOME/.local/bin:$PATH
+
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate bash)"
+fi

@@ -1,0 +1,5 @@
+{{- template "bash-prefix" "run_after_0_3_install-mise" }}
+
+mise install
+
+touch {{ joinPath .chezmoi.workingTree ".steps/step1" }}
