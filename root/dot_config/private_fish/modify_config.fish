@@ -36,6 +36,18 @@ if status is-interactive
     if type -q starship
         starship init fish | source
     end
+
+    # Auto-attach to a default zellij session so `wt switch` hooks always
+    # have a multiplexer client to act on. `exec` replaces fish so this
+    # process doesn't sit underneath; panes spawned inside the session
+    # have $ZELLIJ set and skip this guard.
+    # `--forget` discards any serialized state for `main` so a new terminal
+    # window starts with a clean session instead of resurrecting old panes
+    # and cwds. Worktree sessions (created via the post-switch hook) are
+    # unaffected and keep their state across resurrections.
+    if not set -q ZELLIJ; and command -q zellij
+        exec zellij attach --forget -c main
+    end
 end
 # --- END ---
 {{- .chezmoi.stdin | splitList "# --- END ---" | rest | join "\n" -}}
