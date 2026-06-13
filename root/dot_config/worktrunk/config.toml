@@ -31,16 +31,9 @@ worktree-path = "{{ repo_path }}/.worktrees/{{ branch | sanitize }}"
 skip-shell-integration-prompt = true
 
 # Attach to (or create) a zellij session per worktree on every `wt switch`.
-# Session name: "<repo>-<sanitized-branch>" (e.g. app-feat-auth).
-#
-# Assumes the shell auto-attaches to zellij at startup (see fish config),
-# so $ZELLIJ is always set when wt runs. The guard keeps the hook safe if
-# wt ever runs outside zellij — it just no-ops.
-#
-# If `.zellij-layout.kdl` exists in the primary worktree, pass it as
-# --layout (only applied when the session is being created, not when
-# switching to an existing one).
-post-switch.zellij = '''if [ -n "$ZELLIJ" ]; then layout="{{ primary_worktree_path }}/.zellij-layout.kdl"; if [ -f "$layout" ]; then zellij action switch-session --cwd "{{ worktree_path }}" --layout "$layout" "{{ repo }}-{{ branch | sanitize }}"; else zellij action switch-session --cwd "{{ worktree_path }}" "{{ repo }}-{{ branch | sanitize }}"; fi; fi'''
+# Logic lives in post-switch.mjs (sibling file) — easier to maintain than
+# a bash one-liner. See that script for the full behavior.
+post-switch.zellij = '~/.config/worktrunk/post-switch.mjs "{{ worktree_path }}" "{{ primary_worktree_path }}" "{{ repo }}" "{{ branch | sanitize }}"'
 
 # Clean up the worktree's session when the worktree is removed.
 # `delete-session -f` kills it if running, then removes the entry so it
